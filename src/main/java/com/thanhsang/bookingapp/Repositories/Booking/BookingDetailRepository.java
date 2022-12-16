@@ -12,9 +12,9 @@ import com.thanhsang.bookingapp.Models.Booking.BookingDetailModel;
 @Repository
 public interface BookingDetailRepository extends JpaRepository<BookingDetailModel, BookingDetailKey>{
     
-    @Query(value = "DELETE FROM booking_detail WHERE booking_id = ?1")
+    @Query(value = "DELETE FROM booking_detail WHERE booking_id = ?1", nativeQuery =  true)
     public void deleteByIdBooking(Long booking_id) throws Exception;
 
-    @Query(value = "SELECT * FROM booking_detail WHERE booking_id = ?1")
+    @Query(value = "SELECT * FROM booking_detail WHERE booking_id = ?1", nativeQuery = true)
     public List<BookingDetailModel> findAllByIdBooking(Long book_id) throws Exception;
 }
